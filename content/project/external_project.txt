@@ -1,0 +1,16 @@
+<-- This is an example how to create external projects, which link to other websites. 
+
+Rename this file as .md within a folder with the name of the project. Then add a picture inside the folder with name featured.jpeg or .png to serve as project picture
+-->
+
+---
+date: "2016-04-27T00:00:00Z"
+external_link: http://example.org
+image:
+  caption: Photo by Toa Heftiba on Unsplash
+  focal_point: Smart
+summary: An example of linking directly to an external project website using `external_link`.
+tags:
+- Demo
+title: External Project
+---
