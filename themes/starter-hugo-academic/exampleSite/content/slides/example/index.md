@@ -61,9 +61,6 @@ In-line math: $x + y = z$
 
 Block math:
 
-$$
-f(x) = \frac{2(x + 4)(x - 4)}{(x + 4)(x + 1)}
-$$
 
 ---
 
