@@ -6,9 +6,6 @@ active: true
 headless: true
 draft: false
 
-# Optional external URL for the CV
-external_link: "https://drive.google.com/file/d/12BCbiWbCUJhSvg2om01zgHrIp0-iaj4G/view?usp=drive_link"
-
 # Order that this CV section appears on the page.
 weight: 70
 
@@ -16,5 +13,14 @@ design:
   columns: '2'
 ---
 
-<!-- You can find my CV [here](https://drive.google.com/file/d/12BCbiWbCUJhSvg2om01zgHrIp0-iaj4G/view?usp=drive_link) -->
-<iframe src="https://drive.google.com/file/d/12BCbiWbCUJhSvg2om01zgHrIp0-iaj4G/preview" width="100%" height="800px"></iframe>
+<div style="display: flex; align-items: right;">
+  <div style="flex: 3;">
+    <iframe src="/uploads/Resume.pdf#view=FitH&scrollbar=0&toolbar=0&navpanes=0&twoPage=true" width="120%" height="1000px" frameborder="0" scrolling="auto" title="resume"></iframe>
+  </div>
+  <div style="margin-left: 20px;">
+    <a href="/uploads/resume.pdf" class="btn btn--large" style="padding: 10px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0.7;" download>
+      <img src="/uploads/download_button.png" alt="Download" style="width: 60px; height: 60px;">
+      <span style="margin-top: 5px;">&nbsp;</span>
+    </a>
+  </div>
+</div>
