@@ -54,4 +54,8 @@ title: Ritwik Bhaduri
 
 I am a Ph.D. student at the [Department of Statistics](https://statistics.fas.harvard.edu/home), [Harvard University](https://www.harvard.edu) where I work with [Prof Lucas Janson](https://http://lucasjanson.fas.harvard.edu/) on model free high dimensional inference. Before joining Harvard, I completed B.Stat (Hons.) and M.Stat from [Indian Statistical Institute, Kolkata](https://statistics.fas.harvard.edu/home). In the summer of 2020 and 2021, I worked with [Dr. Bhramar Mukherjee](https://sph.umich.edu/faculty-profiles/mukherjee-bhramar.html), chair of dept. of Biostatistics, [University of Michigan](https://umich.edu/). Most of the papers and software from this collaboration can be found at [covind19.org](https://umich-biostatistics.shinyapps.io/covid19/).
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my [resumé](https://drive.google.com/u/0/uc?id=12BCbiWbCUJhSvg2om01zgHrIp0-iaj4G&export=download).
+
+
+<!--{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.-->
+
