@@ -54,7 +54,7 @@ export const researchExperience: ExperienceItem[] = [
   {
     title: "Summer Internship (2021)",
     organization: "University of Michigan, Biostatistics Department",
-    period: "May 2021 – Jul 2021",
+    period: "Summer 2021",
     logo: "/images/logos/umich-m.svg",
     description:
       "Part 2 of a research internship focused on developing Bayesian epidemiological models and estimating unobserved quantities such as underreporting factors and infection fatality rates."
@@ -62,7 +62,7 @@ export const researchExperience: ExperienceItem[] = [
   {
     title: "Summer Internship (2020)",
     organization: "University of Michigan, Biostatistics Department",
-    period: "May 2020 – Jul 2020",
+    period: "Summer 2020",
     logo: "/images/logos/umich-m.svg",
     description:
       "Part 1 of a research internship focused on epidemiological models for COVID-19, with special attention to misclassification and selection bias in testing."
@@ -70,7 +70,7 @@ export const researchExperience: ExperienceItem[] = [
   {
     title: "Summer Internship",
     organization: "TU Darmstadt",
-    period: "May 2019 – Jul 2019",
+    period: "Summer 2019",
     logo: "/images/logos/tu-darmstadt-icon.svg",
     description:
       "Conducted research at the Bioinspired Communications Lab in the ECE department and developed theorems governing the time evolution of Continuous Time Markov Networks."
@@ -81,14 +81,14 @@ export const teachingExperience: ExperienceItem[] = [
   {
     title: "Teaching Fellow, Stat 213 – Statistical Inference 2",
     organization: "Harvard University",
-    period: "Jan 2023 – May 2023",
+    period: "Spring 2023",
     logo: "/images/logos/harvard-shield.svg",
     description: "Teaching Fellow for graduate-level Statistical Inference 2."
   },
   {
     title: "Teaching Fellow, Stat 211 – Statistical Inference 1",
     organization: "Harvard University",
-    period: "Sep 2022 – Dec 2022",
+    period: "Fall 2022",
     logo: "/images/logos/harvard-shield.svg",
     description:
       "Teaching Fellow for Statistical Inference 1. Received the Harvard University teaching award for contributions in this role.",
