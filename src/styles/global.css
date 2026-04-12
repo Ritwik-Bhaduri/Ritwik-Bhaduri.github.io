@@ -14,6 +14,8 @@
   --shadow: 0 1px 0 rgba(20, 24, 32, 0.06);
   --radius: 3px;
   --radius-sm: 2px;
+  --nav-opacity: 72%;
+  --panel-opacity: 38%;
   --max-width: 1100px;
   --page-content-width: 48rem;
   --page-content-width-wide: 58rem;
@@ -35,6 +37,8 @@
   --accent-contrast: #0c0e12;
   --code-bg: #0a0c10;
   --shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  --nav-opacity: 88%;
+  --panel-opacity: 55%;
 }
 
 * {
@@ -89,7 +93,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  background: color-mix(in srgb, var(--bg) var(--nav-opacity), transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -798,7 +802,7 @@ button.button.primary:hover {
   align-items: center;
   justify-content: center;
   padding: 0 1rem;
-  background: color-mix(in srgb, var(--surface) 55%, transparent);
+  background: color-mix(in srgb, var(--surface) var(--panel-opacity), transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-left: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
