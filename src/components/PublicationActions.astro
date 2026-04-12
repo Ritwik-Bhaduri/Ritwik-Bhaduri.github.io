@@ -10,6 +10,7 @@ const { item, dialogId } = Astro.props;
 const { preprint, journalUrl, bibtex, links } = item;
 ---
 
+<div class="pub-panel">
 <div class="pub-actions">
   {
     preprint && (
@@ -83,6 +84,7 @@ const { preprint, journalUrl, bibtex, links } = item;
     <span class="visually-hidden">Open BibTeX citation</span>
     <span class="pub-bib-mark" aria-hidden="true">@</span>
   </button>
+</div>
 </div>
 
 {

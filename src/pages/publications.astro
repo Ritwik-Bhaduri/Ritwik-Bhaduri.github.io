@@ -33,10 +33,11 @@ import { publications } from "../data/publications";
       <div class="list">
         {publications.map((item, index) => (
           <article class="list-item publication-item">
-            <div class="meta">{item.year} · {item.venue}</div>
-            <h2 class="publication-title">{item.title}</h2>
-            <p class="publication-authors">{item.authors}</p>
-
+            <div class="pub-body">
+              <div class="meta">{item.year} · {item.venue}</div>
+              <h2 class="publication-title">{item.title}</h2>
+              <p class="publication-authors">{item.authors}</p>
+            </div>
             <PublicationActions item={item} dialogId={`pub-bib-${index}`} />
           </article>
         ))}

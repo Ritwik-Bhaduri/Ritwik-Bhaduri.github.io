@@ -721,6 +721,16 @@ button.button.primary:hover {
 }
 
 .publication-item {
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.pub-body {
+  flex: 1;
+  min-width: 0;
   padding: 1.25rem;
 }
 
@@ -732,7 +742,7 @@ button.button.primary:hover {
 }
 
 .publication-authors {
-  margin: 0 0 0.9rem;
+  margin: 0;
   color: var(--muted);
 }
 
@@ -748,39 +758,59 @@ button.button.primary:hover {
   border: 0;
 }
 
+.pub-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  background: var(--surface-2);
+  border-left: 1px solid var(--border);
+  transform: translateX(101%);
+  transition: transform 240ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.publication-item:hover .pub-panel,
+.publication-item:focus-within .pub-panel {
+  transform: translateX(0);
+}
+
 .pub-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 0.85rem;
-  opacity: 0;
-  transform: translateY(5px);
-  transition: opacity 200ms ease, transform 200ms ease;
 }
 
 .pub-actions-extra {
   margin-top: 0.35rem;
-  opacity: 0;
-  transform: translateY(5px);
-  transition: opacity 200ms ease, transform 200ms ease;
-  transition-delay: 30ms;
 }
 
-.publication-item:hover .pub-actions,
-.publication-item:focus-within .pub-actions,
-.publication-item:hover .pub-actions-extra,
-.publication-item:focus-within .pub-actions-extra {
-  opacity: 1;
-  transform: translateY(0);
-}
+@media (hover: none), (max-width: 640px) {
+  .publication-item {
+    display: block;
+    overflow: visible;
+  }
 
-@media (hover: none) {
-  .pub-actions,
-  .pub-actions-extra {
-    opacity: 1;
+  .pub-body {
+    padding-bottom: 0;
+  }
+
+  .pub-panel {
+    position: static;
     transform: none;
-    transition: none;
+    background: transparent;
+    border-left: none;
+    padding: 0.75rem 1.25rem 1.25rem;
+    justify-content: flex-start;
+  }
+
+  .pub-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
