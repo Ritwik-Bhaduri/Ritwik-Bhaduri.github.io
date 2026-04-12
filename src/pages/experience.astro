@@ -24,9 +24,16 @@ import {
         <ul class="exp-panel">
           {education.map((item) => (
             <li class="exp-entry">
-              <p class="exp-entry__period">{item.period}</p>
-              <div class="exp-entry__main">
-                <h3 class="exp-entry__title">{item.title}</h3>
+              {item.logo && (
+                <div class="exp-logo-wrap">
+                  <img class="exp-logo" src={item.logo} alt={item.organization + " logo"} loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="exp-entry__body">
+                <div class="exp-entry__title-row">
+                  <h3 class="exp-entry__title">{item.title}</h3>
+                  <span class="exp-entry__period">{item.period}</span>
+                </div>
                 <p class="exp-entry__org">{item.organization}</p>
                 {item.description && <p class="exp-entry__desc">{item.description}</p>}
               </div>
@@ -40,9 +47,16 @@ import {
         <ul class="exp-panel">
           {industryExperience.map((item) => (
             <li class="exp-entry">
-              <p class="exp-entry__period">{item.period}</p>
-              <div class="exp-entry__main">
-                <h3 class="exp-entry__title">{item.title}</h3>
+              {item.logo && (
+                <div class="exp-logo-wrap">
+                  <img class="exp-logo" src={item.logo} alt={item.organization + " logo"} loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="exp-entry__body">
+                <div class="exp-entry__title-row">
+                  <h3 class="exp-entry__title">{item.title}</h3>
+                  <span class="exp-entry__period">{item.period}</span>
+                </div>
                 <p class="exp-entry__org">{item.organization}</p>
                 {item.description && <p class="exp-entry__desc">{item.description}</p>}
               </div>
@@ -56,9 +70,16 @@ import {
         <ul class="exp-panel">
           {researchExperience.map((item) => (
             <li class="exp-entry">
-              <p class="exp-entry__period">{item.period}</p>
-              <div class="exp-entry__main">
-                <h3 class="exp-entry__title">{item.title}</h3>
+              {item.logo && (
+                <div class="exp-logo-wrap">
+                  <img class="exp-logo" src={item.logo} alt={item.organization + " logo"} loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="exp-entry__body">
+                <div class="exp-entry__title-row">
+                  <h3 class="exp-entry__title">{item.title}</h3>
+                  <span class="exp-entry__period">{item.period}</span>
+                </div>
                 <p class="exp-entry__org">{item.organization}</p>
                 {item.description && <p class="exp-entry__desc">{item.description}</p>}
               </div>
@@ -72,9 +93,16 @@ import {
         <ul class="exp-panel">
           {teachingExperience.map((item) => (
             <li class="exp-entry">
-              <p class="exp-entry__period">{item.period}</p>
-              <div class="exp-entry__main">
-                <h3 class="exp-entry__title">{item.title}</h3>
+              {item.logo && (
+                <div class="exp-logo-wrap">
+                  <img class="exp-logo" src={item.logo} alt={item.organization + " logo"} loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="exp-entry__body">
+                <div class="exp-entry__title-row">
+                  <h3 class="exp-entry__title">{item.title}</h3>
+                  <span class="exp-entry__period">{item.period}</span>
+                </div>
                 <p class="exp-entry__org">{item.organization}</p>
                 {item.description && <p class="exp-entry__desc">{item.description}</p>}
                 {item.certificateLink && (

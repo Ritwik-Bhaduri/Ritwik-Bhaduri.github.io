@@ -580,7 +580,7 @@ button.button.primary:hover {
   margin-top: 0.75rem;
 }
 
-/* —— Experience page: CV-style section panels (date column + role block) —— */
+/* —— Experience page: CV-style section panels —— */
 .experience-page > .exp-section:first-child {
   margin-top: 0;
 }
@@ -610,11 +610,10 @@ button.button.primary:hover {
 }
 
 .exp-entry {
-  display: grid;
-  grid-template-columns: minmax(0, 10.5rem) minmax(0, 1fr);
-  gap: 1rem 1.5rem;
-  align-items: start;
-  padding: 1.15rem 1.35rem;
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  padding: 1.05rem 1.35rem;
   margin: 0;
   border-top: 1px solid var(--border);
   transition: background 160ms ease;
@@ -628,66 +627,98 @@ button.button.primary:hover {
   background: var(--surface-2);
 }
 
-.exp-entry__period {
-  margin: 0.15rem 0 0;
-  font-family: var(--font-ui);
-  font-size: 0.86rem;
-  font-weight: 500;
-  line-height: 1.35;
-  color: var(--muted);
-  letter-spacing: -0.01em;
+.exp-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  width: 69px;
+  height: 69px;
+  flex-shrink: 0;
 }
 
-.exp-entry__main {
+.exp-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.exp-entry__body {
+  flex: 1;
   min-width: 0;
 }
 
+.exp-entry__title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 .exp-entry__title {
-  margin: 0 0 0.25rem;
-  font-size: 1.08rem;
+  margin: 0;
+  font-size: 1.04rem;
   font-weight: 650;
   letter-spacing: -0.02em;
   line-height: 1.3;
 }
 
-.exp-entry__org {
-  margin: 0 0 0.55rem;
+.exp-entry__period {
+  margin: 0;
   font-family: var(--font-ui);
-  font-size: 0.92rem;
-  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.exp-entry__org {
+  margin: 0.18rem 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  color: var(--muted);
   font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .exp-entry__desc {
-  margin: 0;
-  font-size: 1rem;
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
   line-height: 1.62;
   color: var(--text);
 }
 
 .exp-entry__actions {
-  margin: 0.85rem 0 0;
-}
-
-.exp-entry__org:last-child {
-  margin-bottom: 0;
+  margin: 0.75rem 0 0;
 }
 
 @media (max-width: 640px) {
   .exp-entry {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-    padding: 1rem 1.15rem;
+    align-items: flex-start;
+    padding: 0.95rem 1.1rem;
+  }
+
+  .exp-entry__title {
+    font-size: 0.97rem;
+  }
+
+  .exp-entry__title-row {
+    flex-wrap: wrap;
+    gap: 0.2rem;
   }
 
   .exp-entry__period {
-    margin: 0 0 0.15rem;
-    font-size: 0.8rem;
-  }
-
-  .exp-entry__org {
-    margin-bottom: 0.45rem;
+    font-size: 0.77rem;
+    order: -1;
+    width: 100%;
   }
 }
 
