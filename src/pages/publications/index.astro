@@ -1,10 +1,10 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import PageIntro from "../components/PageIntro.astro";
-import PublicationActions from "../components/PublicationActions.astro";
-import ProfileIcon from "../components/ProfileIcon.astro";
-import { contact } from "../data/contact";
-import { publications } from "../data/publications";
+import MainLayout from "../../layouts/MainLayout.astro";
+import PageIntro from "../../components/PageIntro.astro";
+import PublicationActions from "../../components/PublicationActions.astro";
+import ProfileIcon from "../../components/ProfileIcon.astro";
+import { contact } from "../../data/contact";
+import { publications } from "../../data/publications";
 ---
 
 <MainLayout
@@ -33,11 +33,11 @@ import { publications } from "../data/publications";
       <div class="list">
         {publications.map((item, index) => (
           <article class="list-item publication-item">
-            <div class="pub-body">
+            <a class="pub-body pub-body--link" href={`/publications/${item.slug}`}>
               <div class="meta">{item.year} · {item.venue}</div>
               <h2 class="publication-title">{item.title}</h2>
               <p class="publication-authors">{item.authors}</p>
-            </div>
+            </a>
             <PublicationActions item={item} dialogId={`pub-bib-${index}`} />
           </article>
         ))}

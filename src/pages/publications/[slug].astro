@@ -1,0 +1,105 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { publications } from "../../data/publications";
+import type { Publication } from "../../data/publications";
+
+export function getStaticPaths() {
+  return publications.map((pub) => ({
+    params: { slug: pub.slug },
+    props: { pub },
+  }));
+}
+
+interface Props {
+  pub: Publication;
+}
+
+const { pub } = Astro.props;
+
+const preprintLabel: Record<string, string> = {
+  arxiv: "arXiv",
+  biorxiv: "bioRxiv",
+  medrxiv: "medRxiv",
+};
+---
+
+<MainLayout
+  title={`${pub.title} | Ritwik Bhaduri`}
+  description={pub.abstract ?? pub.title}
+>
+  <div class="container">
+    <div class="page-content pub-detail-page">
+      <nav class="pub-detail-nav" aria-label="Breadcrumb">
+        <a href="/publications" class="pub-detail-back">← All publications</a>
+      </nav>
+
+      <article class="pub-detail">
+        <header class="pub-detail__header">
+          <p class="pub-detail__meta">{pub.year} · {pub.venue}</p>
+          <h1 class="pub-detail__title">{pub.title}</h1>
+          <p class="pub-detail__authors">{pub.authors}</p>
+        </header>
+
+        <div class="pub-detail__actions">
+          {pub.preprint && (
+            <a
+              class="button"
+              href={pub.preprint.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {preprintLabel[pub.preprint.server] ?? pub.preprint.server} preprint
+            </a>
+          )}
+          {pub.journalUrl && (
+            <a
+              class="button"
+              href={pub.journalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Journal article
+            </a>
+          )}
+          {pub.links && pub.links.map((link) => (
+            <a
+              class="button"
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
+          <button
+            type="button"
+            class="button pub-detail-bib-btn"
+            data-open-bib="pub-detail-bib"
+          >
+            Cite (BibTeX)
+          </button>
+        </div>
+
+        {pub.abstract && (
+          <section class="pub-detail__abstract">
+            <h2 class="pub-detail__section-heading">Abstract</h2>
+            <p class="pub-detail__abstract-text">{pub.abstract}</p>
+          </section>
+        )}
+      </article>
+    </div>
+  </div>
+
+  <dialog id="pub-detail-bib" class="bib-dialog" aria-labelledby="pub-detail-bib-title">
+    <div class="bib-dialog__chrome">
+      <h2 id="pub-detail-bib-title" class="bib-dialog__title">BibTeX</h2>
+      <button type="button" class="bib-dialog__icon-close" data-close-bib aria-label="Close">×</button>
+    </div>
+    <pre class="bib-dialog__pre"><code>{pub.bibtex}</code></pre>
+    <div class="bib-dialog__actions">
+      <button type="button" class="button primary" data-copy-bib>Copy to clipboard</button>
+      <button type="button" class="button" data-download-bib>Download .bib</button>
+      <button type="button" class="button" data-close-bib>Close</button>
+    </div>
+  </dialog>
+</MainLayout>
