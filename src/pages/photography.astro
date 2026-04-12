@@ -67,7 +67,7 @@ const galleryData = albums.map((a) => ({
             </div>
           </header>
 
-          <div class="gmasonry">
+          <div class="gmasonry" style={`--album-cols:${series.images.length <= 4 ? 2 : 3}`}>
             {series.images.map((src: { src: string; thumb: string }, ii: number) => (
               <button
                 class="gitem"
@@ -181,7 +181,7 @@ const galleryData = albums.map((a) => ({
 
   /* ── Masonry grid ───────────────────────────────────────────── */
   .gmasonry {
-    columns: 3;
+    columns: var(--album-cols, 3);
     column-gap: 0.65rem;
   }
 
@@ -358,7 +358,7 @@ const galleryData = albums.map((a) => ({
 
   /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 820px) {
-    .gmasonry { columns: 2; }
+    .gmasonry { columns: min(var(--album-cols, 3), 2); }
   }
 
   @media (max-width: 500px) {
