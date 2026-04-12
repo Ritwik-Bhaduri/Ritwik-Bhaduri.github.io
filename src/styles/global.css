@@ -754,10 +754,34 @@ button.button.primary:hover {
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.85rem;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 200ms ease, transform 200ms ease;
 }
 
 .pub-actions-extra {
   margin-top: 0.35rem;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  transition-delay: 30ms;
+}
+
+.publication-item:hover .pub-actions,
+.publication-item:focus-within .pub-actions,
+.publication-item:hover .pub-actions-extra,
+.publication-item:focus-within .pub-actions-extra {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .pub-actions,
+  .pub-actions-extra {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .pub-icon-btn {
