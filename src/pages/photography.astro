@@ -26,14 +26,23 @@ const albums = fs
       .readdirSync(path.join(photoBase, folder))
       .filter((f) => IMG_RE.test(f))
       .sort()
-      .map((f) => `/images/photography/${folder}/${f}`);
+      .map((f) => {
+        const thumbName = f.replace(/\.[^.]+$/, ".webp");
+        return {
+          src: `/images/photography/${folder}/${f}`,
+          thumb: `/images/photography/${folder}/_thumb/${thumbName}`,
+        };
+      });
 
     return { title, description: meta.description ?? "", order: meta.order ?? 999, images };
   })
   .filter((a) => a.images.length > 0)
   .sort((a, b) => a.order - b.order);
 
-const galleryData = albums.map((a) => ({ title: a.title, images: a.images }));
+const galleryData = albums.map((a) => ({
+  title: a.title,
+  images: a.images.map((i) => i.src),
+}));
 ---
 
 <MainLayout
@@ -59,7 +68,7 @@ const galleryData = albums.map((a) => ({ title: a.title, images: a.images }));
           </header>
 
           <div class="gmasonry">
-            {series.images.map((src, ii) => (
+            {series.images.map((src: { src: string; thumb: string }, ii: number) => (
               <button
                 class="gitem"
                 type="button"
@@ -68,7 +77,7 @@ const galleryData = albums.map((a) => ({ title: a.title, images: a.images }));
                 aria-label={`View photo ${ii + 1} of ${series.images.length} — ${series.title}`}
               >
                 <img
-                  src={src}
+                  src={src.thumb}
                   alt=""
                   class="gitem__img"
                   loading={si === 0 && ii < 2 ? "eager" : "lazy"}

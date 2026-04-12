@@ -6,12 +6,16 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "node scripts/gen-thumbs.mjs && astro dev",
     "build": "astro build",
+    "prebuild": "node scripts/gen-thumbs.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^6.1.5"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
   }
 }
