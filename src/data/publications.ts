@@ -193,24 +193,6 @@ const publicationsUnsorted: Publication[] = [
 }`
   },
   {
-    slug: "bhattacharyya2021authorcorrection",
-    title: "Incorporating false negative tests in epidemiological models for SARS-CoV-2 transmission and reconciling with seroprevalence estimates",
-    authors:
-      "Rupam Bhattacharyya, Ritoban Kundu, Ritwik Bhaduri, Debashree Ray, Lauren J. Beesley, Maxwell Salvatore, Bhramar Mukherjee",
-    venue: "Scientific Reports (Author Correction)",
-    year: "2021",
-    journalUrl: "https://doi.org/10.1038/s41598-021-96603-1",
-    bibtex: `@article{bhattacharyya2021authorcorrection,
-  title={Author Correction: Incorporating false negative tests in epidemiological models for {SARS-CoV-2} transmission and reconciling with seroprevalence estimates},
-  author={Rupam Bhattacharyya and Ritoban Kundu and Ritwik Bhaduri and Debashree Ray and Lauren J. Beesley and Maxwell Salvatore and Bhramar Mukherjee},
-  journal={Scientific Reports},
-  volume={11},
-  pages={17221},
-  year={2021},
-  doi={10.1038/s41598-021-96603-1}
-}`
-  },
-  {
     slug: "babu2021covid",
     title: "COVID-19 pandemic in India: Through the lens of modeling",
     authors:
@@ -275,7 +257,7 @@ const publicationsUnsorted: Publication[] = [
     slug: "bhattacharyya2021incorporating",
     title: "Incorporating false negative tests in epidemiological models for SARS-CoV-2 transmission and reconciling with seroprevalence estimates",
     authors:
-      "Rupam Bhattacharyya, Ritoban Kundu, Ritwik Bhaduri, Debashree Ray, Lauren J. Beesley, Maxwell Salvatore, et al.",
+      "Rupam Bhattacharyya, Ritoban Kundu, Ritwik Bhaduri, Debashree Ray, Lauren J. Beesley, Maxwell Salvatore, Bhramar Mukherjee",
     venue: "Scientific Reports",
     year: "2021",
     featured: true,
@@ -284,7 +266,7 @@ const publicationsUnsorted: Publication[] = [
     journalUrl: "https://doi.org/10.1038/s41598-021-89127-1",
     bibtex: `@article{bhattacharyya2021incorporating,
   title={Incorporating false negative tests in epidemiological models for {SARS-CoV-2} transmission and reconciling with seroprevalence estimates},
-  author={Rupam Bhattacharyya and Ritoban Kundu and Ritwik Bhaduri and Debashree Ray and Lauren J. Beesley and Maxwell Salvatore and others},
+  author={Rupam Bhattacharyya and Ritoban Kundu and Ritwik Bhaduri and Debashree Ray and Lauren J. Beesley and Maxwell Salvatore and Bhramar Mukherjee},
   journal={Scientific Reports},
   year={2021},
   doi={10.1038/s41598-021-89127-1},
