@@ -55,6 +55,7 @@ async function run() {
       }
 
       await sharp(src)
+        .rotate()
         .resize({ width: THUMB_WIDTH, withoutEnlargement: true })
         .webp({ quality: THUMB_QUALITY })
         .toFile(dest);
