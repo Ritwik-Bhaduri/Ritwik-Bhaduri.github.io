@@ -1,0 +1,121 @@
+---
+import type { Publication } from "../data/publications";
+
+interface Props {
+  item: Publication;
+  dialogId: string;
+}
+
+const { item, dialogId } = Astro.props;
+const { preprint, journalUrl, bibtex, links } = item;
+---
+
+<div class="pub-actions">
+  {
+    preprint && (
+      <a
+        class:list={["pub-icon-btn", "pub-icon-btn--preprint", "pub-icon-btn--preprint-arxiv-mark"]}
+        href={preprint.href}
+        target="_blank"
+        rel="noreferrer"
+        title="preprint"
+        aria-label={`Preprint (${preprint.server})`}
+      >
+        <span class="pub-preprint-mark">
+          <img
+            src="/images/arxiv-logomark.svg"
+            alt=""
+            width="24"
+            height="24"
+            class="pub-icon pub-icon--arxiv-mark"
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+      </a>
+    )
+  }
+
+  {
+    journalUrl && (
+      <a
+        class="pub-icon-btn pub-icon-btn--journal"
+        href={journalUrl}
+        target="_blank"
+        rel="noreferrer"
+        title="journal"
+        aria-label="Journal article"
+      >
+        <svg
+          class="pub-icon pub-icon--symbol"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    )
+  }
+
+  <button
+    type="button"
+    class="pub-icon-btn pub-icon-btn--bib"
+    title="get .bib file"
+    aria-haspopup="dialog"
+    aria-controls={dialogId}
+    data-open-bib={dialogId}
+  >
+    <span class="visually-hidden">Open BibTeX citation</span>
+    <span class="pub-bib-mark" aria-hidden="true">@</span>
+  </button>
+</div>
+
+{
+  links && links.length > 0 && (
+    <div class="links-row pub-actions-extra">
+      {links.map((link) => (
+        <a class="button" href={link.href} target="_blank" rel="noreferrer">
+          {link.label}
+        </a>
+      ))}
+    </div>
+  )
+}
+
+<dialog id={dialogId} class="bib-dialog" aria-labelledby={`${dialogId}-title`}>
+  <div class="bib-dialog__chrome">
+    <h2 id={`${dialogId}-title`} class="bib-dialog__title">
+      BibTeX
+    </h2>
+    <button type="button" class="bib-dialog__icon-close" data-close-bib aria-label="Close">
+      ×
+    </button>
+  </div>
+  <pre class="bib-dialog__pre"><code>{bibtex}</code></pre>
+  <div class="bib-dialog__actions">
+    <button type="button" class="button primary" data-copy-bib>
+      Copy to clipboard
+    </button>
+    <button type="button" class="button" data-download-bib>
+      Download .bib
+    </button>
+    <button type="button" class="button" data-close-bib>
+      Close
+    </button>
+  </div>
+</dialog>

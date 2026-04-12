@@ -1,0 +1,99 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import PageIntro from "../components/PageIntro.astro";
+import {
+  education,
+  industryExperience,
+  researchExperience,
+  teachingExperience
+} from "../data/experience";
+---
+
+<MainLayout
+  title="Ritwik Bhaduri | Experience"
+  description="Education, industry and research internships, and teaching experience."
+>
+  <PageIntro
+    title="Experience"
+  />
+
+  <div class="container">
+    <div class="page-content experience-page">
+      <section class="exp-section" aria-labelledby="exp-education">
+        <h2 class="exp-section__heading" id="exp-education">Education</h2>
+        <ul class="exp-panel">
+          {education.map((item) => (
+            <li class="exp-entry">
+              <p class="exp-entry__period">{item.period}</p>
+              <div class="exp-entry__main">
+                <h3 class="exp-entry__title">{item.title}</h3>
+                <p class="exp-entry__org">{item.organization}</p>
+                {item.description && <p class="exp-entry__desc">{item.description}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="exp-section" aria-labelledby="exp-industry">
+        <h2 class="exp-section__heading" id="exp-industry">Industry</h2>
+        <ul class="exp-panel">
+          {industryExperience.map((item) => (
+            <li class="exp-entry">
+              <p class="exp-entry__period">{item.period}</p>
+              <div class="exp-entry__main">
+                <h3 class="exp-entry__title">{item.title}</h3>
+                <p class="exp-entry__org">{item.organization}</p>
+                {item.description && <p class="exp-entry__desc">{item.description}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="exp-section" aria-labelledby="exp-research">
+        <h2 class="exp-section__heading" id="exp-research">Research internships</h2>
+        <ul class="exp-panel">
+          {researchExperience.map((item) => (
+            <li class="exp-entry">
+              <p class="exp-entry__period">{item.period}</p>
+              <div class="exp-entry__main">
+                <h3 class="exp-entry__title">{item.title}</h3>
+                <p class="exp-entry__org">{item.organization}</p>
+                {item.description && <p class="exp-entry__desc">{item.description}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="exp-section" aria-labelledby="exp-teaching">
+        <h2 class="exp-section__heading" id="exp-teaching">Teaching</h2>
+        <ul class="exp-panel">
+          {teachingExperience.map((item) => (
+            <li class="exp-entry">
+              <p class="exp-entry__period">{item.period}</p>
+              <div class="exp-entry__main">
+                <h3 class="exp-entry__title">{item.title}</h3>
+                <p class="exp-entry__org">{item.organization}</p>
+                {item.description && <p class="exp-entry__desc">{item.description}</p>}
+                {item.certificateLink && (
+                  <p class="exp-entry__actions">
+                    <a
+                      class="button"
+                      href={item.certificateLink.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.certificateLink.label}
+                    </a>
+                  </p>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  </div>
+</MainLayout>

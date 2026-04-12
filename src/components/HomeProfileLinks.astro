@@ -1,0 +1,27 @@
+---
+import ProfileIcon from "./ProfileIcon.astro";
+import { homeProfileLinks } from "../data/homeProfileLinks";
+---
+
+<nav class="home-profile-links" aria-label="Quick links">
+  <ul class="home-profile-links__list">
+    {
+      homeProfileLinks.map((item) => (
+        <li>
+          <a
+            class="home-profile-link"
+            href={item.href}
+            aria-label={item.ariaLabel ?? item.label}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noreferrer" : undefined}
+          >
+            <span class="home-profile-link__icon-wrap">
+              <ProfileIcon name={item.icon} />
+            </span>
+            <span class="home-profile-link__label">{item.label}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

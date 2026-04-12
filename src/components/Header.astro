@@ -1,0 +1,68 @@
+---
+import { site } from "../data/site";
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+function navIsActive(href: string) {
+  const h = href.replace(/\/+$/, "") || "/";
+  return currentPath === h;
+}
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="site-brand" href="/">{site.name}</a>
+
+    <div class="header-controls">
+      <nav class="site-nav" aria-label="Main navigation">
+        {site.nav.map((item) => (
+          <a
+            href={item.href}
+            class={navIsActive(item.href) ? "nav-link active" : "nav-link"}
+            target={item.openInNewTab ? "_blank" : undefined}
+            rel={item.openInNewTab ? "noopener noreferrer" : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <button
+        type="button"
+        class="theme-toggle"
+        data-theme-toggle
+        aria-label="Toggle color theme"
+        title="Toggle light / dark theme"
+      >
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      if (!(t instanceof Element)) return;
+      var btn = t.closest("[data-theme-toggle]");
+      if (!btn) return;
+      var root = document.documentElement;
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem("ritwik-theme", next);
+      } catch (err) {}
+    });
+  })();
+</script>

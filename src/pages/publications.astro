@@ -1,0 +1,46 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import PageIntro from "../components/PageIntro.astro";
+import PublicationActions from "../components/PublicationActions.astro";
+import ProfileIcon from "../components/ProfileIcon.astro";
+import { contact } from "../data/contact";
+import { publications } from "../data/publications";
+---
+
+<MainLayout
+  title="Ritwik Bhaduri | Publications"
+  description="Peer-reviewed articles and preprints, with BibTeX citations."
+>
+  <PageIntro
+    title="Publications and Preprints"
+    intro="For the most up-to-date list of publications, visit my Google Scholar profile."
+  >
+    <div slot="actions" class="page-intro__actions">
+      <a
+        class="button primary button--scholar-outlink"
+        href={contact.scholar}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <ProfileIcon name="scholar" class="button--scholar-outlink__icon" />
+        Google Scholar
+      </a>
+    </div>
+  </PageIntro>
+
+  <div class="container">
+    <div class="page-content page-content--wide">
+      <div class="list">
+        {publications.map((item, index) => (
+          <article class="list-item publication-item">
+            <div class="meta">{item.year} · {item.venue}</div>
+            <h2 class="publication-title">{item.title}</h2>
+            <p class="publication-authors">{item.authors}</p>
+
+            <PublicationActions item={item} dialogId={`pub-bib-${index}`} />
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</MainLayout>

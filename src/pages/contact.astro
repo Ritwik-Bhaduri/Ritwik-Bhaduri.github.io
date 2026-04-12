@@ -1,0 +1,28 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import PageIntro from "../components/PageIntro.astro";
+import { contact } from "../data/contact";
+---
+
+<MainLayout title="Ritwik Bhaduri | Contact" description="Email and profiles for getting in touch.">
+  <PageIntro
+    title="Contact"
+    intro="Email is usually the fastest way to reach me; links to my profiles are below."
+  />
+
+  <div class="container">
+    <div class="page-content">
+      <div class="section-card">
+        <p><strong>Email:</strong> <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+        <p><strong>GitHub:</strong> <a href={contact.github} target="_blank" rel="noreferrer">{contact.github}</a></p>
+        <p><strong>LinkedIn:</strong> <a href={contact.linkedin} target="_blank" rel="noreferrer">{contact.linkedin}</a></p>
+
+        {contact.scholar && (
+          <p><strong>Scholar:</strong> <a href={contact.scholar} target="_blank" rel="noreferrer">{contact.scholar}</a></p>
+        )}
+
+        <p>{contact.note}</p>
+      </div>
+    </div>
+  </div>
+</MainLayout>

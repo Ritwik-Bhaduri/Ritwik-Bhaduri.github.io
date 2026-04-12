@@ -1,0 +1,49 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import HomeProfileLinks from "../components/HomeProfileLinks.astro";
+import { site } from "../data/site";
+import { contact } from "../data/contact";
+---
+
+<MainLayout title="Ritwik Bhaduri | Home" description={site.description}>
+  <section class="container home-intro" aria-labelledby="home-name">
+    <div class="home-intro__grid">
+      <div class="home-intro__photo-wrap">
+        <img
+          class="home-intro__photo"
+          src="/images/profile/avatar.jpg"
+          alt="Portrait of Ritwik Bhaduri"
+          width="320"
+          height="320"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+
+      <div class="home-intro__copy">
+        <p class="home-intro__hi">Hi, my name is</p>
+        <h1 class="home-intro__name" id="home-name">Ritwik Bhaduri.</h1>
+
+       <div class="home-intro__stack">
+          <div class="home-intro__bio">
+            <p>
+              Starting June, 2026, I will be joining Cubist Systematic Strategies as a Quantitative Researcher. 
+              Curerntly, I am a PhD candidate in Statistics at Harvard University, advised by Prof. Lucas Janson where I work on assumption lean statistical inference.
+            </p>
+            <p>
+              Before Harvard, I completed my B.Stat and M.Stat at the Indian Statistical Institute, Kolkata, and worked with Dr. Bhramar Mukherjee at the University of Michigan on COVID-19 modeling and estimating undetected infections.
+            </p>
+          </div>
+        </div>
+
+          <p class="home-intro__email">
+            <strong>Email:</strong>{" "}
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          </p>
+
+          <HomeProfileLinks />
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,106 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = site.title,
+  description = site.description
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="dark light" />
+    <script is:inline>
+      (function () {
+        try {
+          var k = "ritwik-theme";
+          var s = localStorage.getItem(k);
+          document.documentElement.dataset.theme =
+            s === "light" || s === "dark" ? s : "dark";
+        } catch (e) {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <Header />
+    <main class="site-main">
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline>
+      (function () {
+        if (window.__pubBibUiInit) return;
+        window.__pubBibUiInit = true;
+
+        document.addEventListener("click", function (e) {
+          var el = e.target;
+          if (!(el instanceof Element)) return;
+
+          var openBtn = el.closest("[data-open-bib]");
+          if (openBtn) {
+            var oid = openBtn.getAttribute("data-open-bib");
+            var odlg = oid && document.getElementById(oid);
+            if (odlg && typeof odlg.showModal === "function") odlg.showModal();
+            return;
+          }
+
+          if (el.closest("[data-close-bib]")) {
+            var cdlg = el.closest("dialog");
+            if (cdlg && typeof cdlg.close === "function") cdlg.close();
+            return;
+          }
+
+          if (el.closest("[data-copy-bib]")) {
+            var dlg = el.closest("dialog");
+            var code = dlg && dlg.querySelector("pre code");
+            var txt = code && code.textContent ? code.textContent : "";
+            if (txt && navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(txt).then(function () {
+                var b = dlg && dlg.querySelector("[data-copy-bib]");
+                if (b && b.textContent) {
+                  var prev = b.textContent;
+                  b.textContent = "Copied!";
+                  setTimeout(function () {
+                    b.textContent = prev;
+                  }, 1600);
+                }
+              });
+            }
+            return;
+          }
+
+          if (el.closest("[data-download-bib]")) {
+            var ddlg = el.closest("dialog");
+            var dcode = ddlg && ddlg.querySelector("pre code");
+            var dtxt = dcode && dcode.textContent ? dcode.textContent : "";
+            var m = dtxt.match(/@\w+\{([^,\s]+)/);
+            var fname = m ? m[1] + ".bib" : (ddlg && ddlg.id ? ddlg.id : "citation") + ".bib";
+            var blob = new Blob([dtxt], { type: "text/plain;charset=utf-8" });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = fname;
+            a.click();
+            URL.revokeObjectURL(url);
+            return;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
