@@ -8,6 +8,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CV</title>
+    <script>
+      const cvPdfPath = "/files/ritwik-bhaduri-cv.pdf";
+      const isMobileLikeViewport =
+        window.matchMedia("(hover: none), (pointer: coarse), (max-width: 900px)").matches;
+      if (isMobileLikeViewport) {
+        window.location.replace(cvPdfPath);
+      }
+    </script>
     <style>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       html, body { height: 100%; overflow: hidden; background: #525659; }
@@ -24,5 +32,8 @@
       src="/files/ritwik-bhaduri-cv.pdf"
       title="Curriculum vitae"
     ></iframe>
+    <noscript>
+      <a href="/files/ritwik-bhaduri-cv.pdf">Open CV PDF</a>
+    </noscript>
   </body>
 </html>
